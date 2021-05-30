@@ -5,13 +5,10 @@ If target is not found in the array, return [-1, -1].
 '''
 def searchRange(self, nums: List[int], target: int) -> List[int]:
         fisrtIndex,lastindex=-1,-1
-        if target not in nums:
-            return [fisrtIndex,lastindex]
-        else:
-            for i in range(len(nums)):
-                if nums[i]==target and fisrtIndex==-1:
-                    fisrtIndex=i
-                    lastindex=fisrtIndex
-                elif nums[i]==target and fisrtIndex>-1:
-                    lastindex=i
+        for i in range(len(nums)):
+            if nums[i]==target and fisrtIndex==-1:
+                fisrtIndex=i
+                lastindex=fisrtIndex
+            elif nums[i]==target and fisrtIndex>-1:
+                lastindex=i
         return [fisrtIndex,lastindex]
