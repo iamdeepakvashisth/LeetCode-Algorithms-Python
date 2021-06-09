@@ -1,9 +1,11 @@
-def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
-        paragraph_a = re.sub("[!?',;.]+", ' ', paragraph)
-        list_of_words = paragraph_a.lower().split(' ')
-        word_cnt = {}
-        for word in list_of_words:
-            if word not in banned and word not in [ ' ', '']:
-                word_cnt[word] = word_cnt.get(word,0) +1
-        max_key = max(word_cnt, key=word_cnt.get) 
-        return max_key
+def mostCommonWord(self, p: str, banned: List[str]) -> str:
+        d={}
+        import re
+        s = re.sub("[!?',;.]+", ' ',p).lower()
+        l=s.split()
+        for i in l:
+            if i not in banned and i not in d:
+                d[i]=1
+            elif i not in banned: 
+                d[i]+=1
+        return max(d, key=d.get)
