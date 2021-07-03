@@ -12,22 +12,11 @@ Given two strings, word1 and word2, return true if word1 and word2 are close, an
 '''
 
 def closeStrings(self, word1: str, word2: str) -> bool:
-	d1={}
-	d2={}
-	if len(word1) != len(word2):
-		return False
-	else:
-		for i in word1:
-			if i not in d1:
-				d1[i]=1
-			else:
-				d1[i]+=1
-		print(d1)
-		for i in word2:
-			if i not in d2:
-				d2[i]=1
-			else:
-				d2[i]+=1
-		if d1.keys()==d2.keys():
-			return sorted(list(d1.values()))==sorted(list(d2.values()))
-	
+	if set(word1) != set(word2):
+            return False
+        a = sorted(list(Counter(word1).values()))
+        b = sorted(list(Counter(word2).values()))
+        if a != b:
+            return False
+        else:
+            return True
