@@ -5,8 +5,10 @@ You are given an integer array gain of length n where gain[i] is the net gain in
 
 '''
 def largestAltitude(self, gain: List[int]) -> int:
-        res = [0]
-        for i in range(len(gain)):
-            res.append(gain[i] + res[i])
-        return max(res)
+        max, altitude = 0, 0
+        for i in gain:
+            altitude += i
+            if altitude > max:
+                max = altitude
+        return max
            
