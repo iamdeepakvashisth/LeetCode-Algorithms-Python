@@ -7,11 +7,10 @@ Sort the elements of arr1 such that the relative ordering of items in arr1 are t
 
 def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
         res = []
+        extra = sorted(set(arr1)-set(arr2))
+        count = Counter(arr1)
         for i in arr2:
-            count = arr1.count(i)
-            while count != 0:
-                res.append(i)
-                arr1.remove(i)
-                count -= 1
-        res.extend(sorted(arr1))
+            res.extend([i]*count[i])
+        for i in extra:
+            res.extend([i]*count[i])
         return res
