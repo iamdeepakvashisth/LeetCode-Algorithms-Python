@@ -12,9 +12,7 @@ Return the intervals of every large group sorted in increasing order by start in
 '''
 
 def largeGroupPositions(self, s: str) -> List[List[int]]:
-        res = []
-        ind =[]
-        maxDiff = 0
+        res, ind = [], []
         for i in range(len(s)):
             if i == 0:
                 sIndex, eIndex = 0, 0
@@ -29,14 +27,13 @@ def largeGroupPositions(self, s: str) -> List[List[int]]:
                 if i == len(s)-1:
                     res.append([sIndex, eIndex])
         for i in res:
-            
             if i[1] - i[0] >= 2:
                 ind.append(i)
-        
-        if len(ind)> 0:
+        if len(ind) > 0:
             return ind 
         else:
             return []
+        
         
                 
                 
